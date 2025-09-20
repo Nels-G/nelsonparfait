@@ -1,11 +1,4 @@
-﻿/*
-* ----------------------------------------------------------------------------------------
-Author       : Hridoy
-Template Name: Bentos - Personal Portfolio HTML Template
-Version      : 1.0                                          
-* ----------------------------------------------------------------------------------------
-*/
-
+﻿
 /*
 * ----------------------------------------------------------------------------------------
 * 01.GLOBAL CSS STYLE
@@ -2723,9 +2716,9 @@ ul.blog_pagination li a:hover {
     float: right;
 }
 
-.single-side-bar ul li a:hover {
+/* .single-side-bar ul li a:hover {
     color: #fff opacity: 1;
-}
+} */
 
 .single-blog-social-icon {
     overflow: hidden;
@@ -3006,4 +2999,398 @@ ul.blog_pagination li a:hover {
     border-radius: 14px;
     padding: 25px;
     border: 1px solid var(--border-color);
+}
+
+
+/* CSS pour la section statistiques remplaçant "Mes collaborations" */
+.stats-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin-top: 0;
+}
+
+.stats-item {
+    text-align: center;
+    padding: 10px 8px;
+    border: 1px solid rgba(119, 119, 125, .2);
+    border-radius: 8px;
+    background: linear-gradient(135deg, rgba(0, 165, 120, 0.1) 0%, rgba(0, 165, 120, 0.05) 100%);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.stats-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 30px rgba(0, 165, 120, 0.2);
+}
+
+.stats-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    transition: left 0.5s ease;
+}
+
+.stats-item:hover::before {
+    left: 100%;
+}
+
+.stats-number {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    margin-bottom: 3px;
+    line-height: 1;
+}
+
+.stats-count {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    font-family: "Poppins", sans-serif;
+    text-shadow: 0 1px 2px rgba(0, 165, 120, 0.2);
+}
+
+.stats-plus {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-left: 1px;
+    opacity: 0.8;
+}
+
+.stats-label {
+    font-size: 11px;
+    color: rgb(206, 206, 206);
+    font-weight: 500;
+    text-transform: capitalize;
+    letter-spacing: 0.1px;
+    line-height: 1.1;
+}
+
+/* Animation pour les compteurs */
+@keyframes countUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.stats-item.animate .stats-count {
+    animation: countUp 0.6s ease-out;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .stats-section {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .stats-item {
+        padding: 25px 15px;
+    }
+    
+    .stats-count {
+        font-size: 2.5rem;
+    }
+    
+    .stats-plus {
+        font-size: 1.5rem;
+    }
+    
+    .stats-label {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-section {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .stats-item {
+        padding: 30px 20px;
+    }
+}
+
+
+/* CSS avec structure totalement fixe */
+.services-quality-area {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.services-quality-section {
+    padding: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    box-shadow: rgba(255, 255, 255, 0.025) 0px 0.362176px 0.651917px -1px inset, rgba(255, 255, 255, 0.036) 0px 3px 5.4px -2px inset;
+    background-color: #121214;
+}
+
+.services-quality-section .section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.services-quality-section .section-title h2 {
+    font-size: 40px;
+    line-height: 50px;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.services-quality-section .section-title p {
+    color: rgb(119, 119, 125);
+    font-size: 16px;
+    padding: 0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Container avec dimensions fixes */
+.services-container {
+    display: block;
+}
+
+/* Structure rigide pour chaque service */
+.service-item {
+    position: relative;
+    height: 120px; /* Hauteur fixe */
+    margin-bottom: 5px;
+    overflow: hidden;
+}
+
+/* Background séparé - couche absolue */
+.service-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: transparent;
+    border-radius: 16px;
+    border-bottom: 1px solid rgba(119, 119, 125, .2);
+    transition: background-color 0.3s ease;
+}
+
+/* Premier service avec background vert */
+.service-item[data-service="1"] .service-background {
+    background: linear-gradient(135deg, var(--primary-color) 0%, rgba(0, 165, 120, 0.8) 100%);
+    border: none;
+}
+
+/* Wrapper de contenu avec position absolue */
+.service-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    padding: 25px;
+    z-index: 2;
+}
+
+/* Numéro - taille fixe */
+.service-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(119, 119, 125, .2);
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-right: 25px;
+}
+
+/* Contenu info */
+.service-info {
+    flex: 1;
+    margin-right: 25px;
+}
+
+.service-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--heading-color);
+    margin: 0 0 8px 0;
+    line-height: 1.2;
+}
+
+.service-desc {
+    font-size: 16px;
+    line-height: 1.4;
+    color: rgb(119, 119, 125);
+    margin: 0;
+}
+
+/* Icône flèche avec transition */
+.service-icon {
+    font-size: 24px;
+    color: rgba(119, 119, 125, 0.5);
+    flex-shrink: 0;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Styles pour le premier service par défaut */
+.service-item[data-service="1"] .service-number {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.service-item[data-service="1"] .service-title {
+    color: white;
+}
+
+.service-item[data-service="1"] .service-desc {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.service-item[data-service="1"] .service-icon {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Animation au survol - seulement le background change */
+.service-item:hover .service-background {
+    background: linear-gradient(135deg, var(--primary-color) 0%, rgba(0, 165, 120, 0.8) 100%);
+    border: none;
+}
+
+.service-item:hover .service-number {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.service-item:hover .service-title {
+    color: white;
+}
+
+.service-item:hover .service-desc {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.service-item:hover .service-icon {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .services-quality-section {
+        padding: 25px 15px;
+    }
+    
+    .services-quality-section .section-title h2 {
+        font-size: 28px;
+        line-height: 36px;
+    }
+    
+    .services-quality-section .section-title p {
+        font-size: 14px;
+        padding: 0 10px;
+    }
+    
+    .service-item {
+        height: auto;
+        min-height: 160px;
+        margin-bottom: 15px;
+    }
+    
+    .service-wrapper {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 15px;
+        align-items: center;
+    }
+    
+    .service-number {
+        margin-right: 0;
+        margin-bottom: 15px;
+        width: 50px;
+        height: 50px;
+        font-size: 16px;
+    }
+    
+    .service-info {
+        margin-right: 0;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    
+    .service-title {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .service-desc {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    
+    .service-icon {
+        font-size: 20px;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .services-quality-section {
+        padding: 20px 10px;
+    }
+    
+    .services-quality-section .section-title {
+        margin-bottom: 30px;
+    }
+    
+    .services-quality-section .section-title h2 {
+        font-size: 24px;
+        line-height: 32px;
+    }
+    
+    .service-item {
+        min-height: 140px;
+        margin-bottom: 12px;
+    }
+    
+    .service-wrapper {
+        padding: 15px 10px;
+    }
+    
+    .service-number {
+        width: 45px;
+        height: 45px;
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+    
+    .service-title {
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .service-desc {
+        font-size: 13px;
+        line-height: 1.4;
+    }
 }
